@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airswift | IT Consulting Services</title>
+<style>
+  :root{
+    --primary:#0b3d91;
+    --primary-light:#1565c0;
+    --accent:#29b6f6;
+    --bg-light:#f4f6fb;
+    --text-dark:#222;
+    --text-muted:#5a6472;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text-dark);line-height:1.6}
+  a{text-decoration:none}
+  img{max-width:100%;display:block}
+
+  /* Header */
+  header{
+    background:#fff;color:var(--primary);padding:14px 40px;
+    display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15);
+  }
+  .logo{display:flex;align-items:center;gap:10px;padding:6px 14px;border-radius:6px}
+  .logo .logo-img{height:48px;width:auto}
+  nav a{color:var(--primary);margin-left:26px;font-size:15px;font-weight:500;opacity:.9;transition:opacity .2s}
+  nav a:hover{opacity:1;color:var(--accent)}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(135deg,var(--bg-light) 0%,#e3ecfb 100%);
+    padding:100px 40px;text-align:center;
+  }
+  .hero h1{font-size:44px;margin-bottom:18px;color:var(--primary)}
+  .hero p{font-size:19px;color:var(--text-muted);max-width:700px;margin:0 auto 32px}
+  .btn{
+    display:inline-block;background:var(--primary);color:#fff;padding:14px 32px;
+    border-radius:6px;font-weight:600;transition:background .2s;
+  }
+  .btn:hover{background:var(--primary-light)}
+
+  /* Sections */
+  .section{padding:70px 40px;max-width:1150px;margin:0 auto}
+  .section h2{font-size:30px;margin-bottom:8px;color:var(--primary);text-align:center}
+  .section .subhead{text-align:center;color:var(--text-muted);margin-bottom:40px;font-size:16px}
+  .section.alt{background:var(--bg-light)}
+  .section.alt > *{max-width:1150px;margin-left:auto;margin-right:auto}
+
+  /* Services */
+  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+  .card{
+    border:1px solid #e3e6ec;border-radius:10px;padding:28px;background:#fff;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(11,61,145,.1)}
+  .card .icon{font-size:30px;margin-bottom:12px}
+  .card h3{margin-bottom:10px;color:var(--primary);font-size:19px}
+  .card p{color:var(--text-muted);font-size:15px}
+
+  /* Image gallery grids (Oil & Gas / QA Testing) */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:10px}
+  .gallery figure{
+    border-radius:10px;overflow:hidden;background:#fff;border:1px solid #e3e6ec;
+    box-shadow:0 4px 14px rgba(0,0,0,.05);
+  }
+  .gallery figure img{width:100%;height:190px;object-fit:cover}
+  .gallery figcaption{padding:16px 18px}
+  .gallery figcaption h4{color:var(--primary);font-size:16px;margin-bottom:6px}
+  .gallery figcaption p{color:var(--text-muted);font-size:14px}
+
+  /* Stats */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;text-align:center;margin-top:20px}
+  .stats .stat strong{display:block;font-size:34px;color:var(--primary)}
+  .stats .stat span{color:var(--text-muted);font-size:14px}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+  .about-grid p{color:var(--text-muted);margin-bottom:14px}
+  .about-grid ul{list-style:none;margin-top:16px}
+  .about-grid ul li{padding:6px 0;color:var(--text-dark)}
+  .about-grid ul li::before{content:"✔ ";color:var(--primary);font-weight:700}
+
+  /* Contact */
+  .contact{background:var(--primary);color:#fff;padding:70px 40px;text-align:center}
+  .contact h2{color:#fff;font-size:30px;margin-bottom:10px}
+  .contact .subhead{color:#cfe0f7;margin-bottom:36px}
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:800px;margin:0 auto}
+  .contact-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:24px}
+  .contact-card .icon{font-size:26px;margin-bottom:10px}
+  .contact-card a, .contact-card p{color:#fff;font-size:16px}
+
+  footer{text-align:center;padding:24px;color:#777;background:#f4f6fb;font-size:14px}
+
+  @media (max-width:768px){
+    header{padding:14px 20px}
+    nav{display:none}
+    .hero{padding:70px 20px}
+    .section{padding:50px 20px}
+    .about-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo" aria-label="Airswift Home">
+    <img src="logo.jpg" alt="Airswift - Trusted Worldwide" class="logo-img">
+  </a>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#industries">Industries</a>
+    <a href="#quality">Quality &amp; Testing</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>IT Consulting Services That Drive Results</h1>
+  <p>Airswift partners with enterprises worldwide to deliver cloud, cybersecurity, software engineering, and quality assurance solutions — trusted by clients across Oil &amp; Gas, Energy, and beyond.</p>
+  <a href="#contact" class="btn">Get in Touch</a>
+</section>
+
+<section id="services" class="section">
+  <h2>Our Services</h2>
+  <p class="subhead">End-to-end technology consulting tailored to your business goals</p>
+  <div class="services">
+    <div class="card">
+      <div class="icon">☁️</div>
+      <h3>Cloud Solutions</h3>
+      <p>Scalable cloud infrastructure, migration, and managed cloud operations on AWS, Azure, and GCP.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔒</div>
+      <h3>Cybersecurity</h3>
+      <p>Proactive threat protection, security audits, and compliance management for your business.</p>
+    </div>
+    <div class="card">
+      <div class="icon">💻</div>
+      <h3>Software Development</h3>
+      <p>Custom web, mobile, and enterprise applications built with modern engineering practices.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🧪</div>
+      <h3>QA &amp; Testing</h3>
+      <p>Manual and automated testing, performance testing, and quality engineering services.</p>
+    </div>
+    <div class="card">
+      <div class="icon">⚙️</div>
+      <h3>IT Support</h3>
+      <p>24/7 managed IT services, helpdesk support, and infrastructure monitoring.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>Data &amp; Analytics</h3>
+      <p>Business intelligence, data engineering, and analytics dashboards for informed decisions.</p>
+    </div>
+  </div>
+</section>
+
+<section id="industries" class="section alt">
+  <h2>Oil &amp; Gas Client Engagements</h2>
+  <p class="subhead">Sample projects delivered for our Oil &amp; Gas sector clients</p>
+  <div class="gallery">
+    <figure>
+      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop" alt="Offshore oil and gas platform" loading="lazy" onerror="this.src='https://placehold.co/600x400/0b3d91/ffffff?text=Offshore+Platform'">
+      <figcaption>
+        <h4>Offshore Platform Digitization</h4>
+        <p>Deployed IoT monitoring and cloud dashboards for real-time rig performance tracking.</p>
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?w=600&h=400&fit=crop" alt="Oil refinery plant" loading="lazy" onerror="this.src='https://placehold.co/600x400/0b3d91/ffffff?text=Refinery+Operations'">
+      <figcaption>
+        <h4>Refinery Operations System</h4>
+        <p>Built a centralized ERP integration platform to streamline refinery workflows.</p>
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images.unsplash.com/photo-1545158535-c3f7168c28b6?w=600&h=400&fit=crop" alt="Pipeline infrastructure" loading="lazy" onerror="this.src='https://placehold.co/600x400/0b3d91/ffffff?text=Pipeline+Infrastructure'">
+      <figcaption>
+        <h4>Pipeline Infrastructure Security</h4>
+        <p>Implemented SCADA cybersecurity controls safeguarding critical pipeline networks.</p>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="stats">
+    <div class="stat"><strong>15+</strong><span>Oil &amp; Gas Clients</span></div>
+    <div class="stat"><strong>40+</strong><span>Projects Delivered</span></div>
+    <div class="stat"><strong>99.9%</strong><span>System Uptime</span></div>
+    <div class="stat"><strong>24/7</strong><span>Support Coverage</span></div>
+  </div>
+</section>
+
+<section id="quality" class="section">
+  <h2>Quality Assurance &amp; Testing</h2>
+  <p class="subhead">Sample QA engagements ensuring reliability and performance</p>
+  <div class="gallery">
+    <figure>
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="QA engineers reviewing test automation dashboard" loading="lazy" onerror="this.src='https://placehold.co/600x400/1565c0/ffffff?text=Test+Automation'">
+      <figcaption>
+        <h4>Test Automation Framework</h4>
+        <p>Built Selenium/Playwright automation suites reducing regression testing time by 70%.</p>
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Software developers performing code quality review" loading="lazy" onerror="this.src='https://placehold.co/600x400/1565c0/ffffff?text=Code+Quality+Review'">
+      <figcaption>
+        <h4>Performance &amp; Load Testing</h4>
+        <p>Validated application scalability under peak load for mission-critical systems.</p>
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Team analyzing data on screens during testing" loading="lazy" onerror="this.src='https://placehold.co/600x400/1565c0/ffffff?text=Manual+%26+UAT+Testing'">
+      <figcaption>
+        <h4>Manual &amp; UAT Testing</h4>
+        <p>Executed structured test plans and user acceptance testing cycles for enterprise rollouts.</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="about" class="section alt">
+  <h2>About Us</h2>
+  <div class="about-grid">
+    <div>
+      <p>Airswift is a leading IT consulting firm delivering innovative technology solutions across industries. With a strong track record serving Oil &amp; Gas enterprises alongside clients in finance, healthcare, and retail, we combine deep domain expertise with modern engineering practices.</p>
+      <p>Our teams specialize in cloud transformation, secure software delivery, and rigorous quality assurance — helping clients launch reliable systems faster and with confidence.</p>
+      <ul>
+        <li>10+ years of IT consulting experience</li>
+        <li>Dedicated QA &amp; testing centers of excellence</li>
+        <li>Certified cloud and security professionals</li>
+        <li>Global delivery with 24/7 support</li>
+      </ul>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=450&fit=crop" alt="Consulting team collaborating" loading="lazy" style="border-radius:10px" onerror="this.src='https://placehold.co/600x450/0b3d91/ffffff?text=Airswift+Team'">
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p class="subhead">Reach out to discuss your next IT initiative</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="icon">✉️</div>
+      <p>Email</p>
+      <a href="mailto:info@airswift.in">info@airswift.in</a>
+    </div>
+    <div class="contact-card">
+      <div class="icon">📞</div>
+      <p>Mobile</p>
+      <a href="tel:+91934356789">+91-934356789</a>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 Airswift IT Consulting. All rights reserved.</footer>
+
+</body>
+</html>
